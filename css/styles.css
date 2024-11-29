@@ -325,7 +325,7 @@ address {
 
     pointer-events: none;
 
-    transition: opacity 250ms cubic-bezier(0.4, 0, 0.2, 1);
+    transition: opacity 250ms cubic-bezier(0.4, 0, 0.2, 1), visibility 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .is-open {
@@ -336,34 +336,34 @@ address {
 }
 
 .form_block {
-    padding: 24px;
+    padding: 72px 24px 24px;
     position: absolute;
 
     top: 50%;
-    right: 50%;
-    transform: translate(50%, -50%);
+    left: 50%;
+    transform: translate(-50%, -50%);
 
     border-radius: 4px;
     width: 408px;
-    max-height: 80vh;
-
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
+    min-height: 584px;
 
     box-shadow: 0 1px 1px 0 rgba(0, 0, 0, 0.14), 0 1px 3px 0 rgba(0, 0, 0, 0.12), 0 2px 1px 0 rgba(0, 0, 0, 0.2);
     background: var(--dairy);
+
+    transition: transform 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .close_modal {
-    display: block;
-
-    position: relative;
-
+    padding: 0;
     margin-bottom: 24px;
 
-    cursor: pointer;
+    display: block;
+    position: absolute;
+
+    top: 24px;
+    right: 24px;
+
+
 
     width: 24px;
     height: 24px;
@@ -373,27 +373,49 @@ address {
 
     background-color: #E7E9FC;
 
-    display: flex;
-    justify-content: center;
-    align-items: center;
+    cursor: pointer;
 
-    align-self: flex-end;
-
-    transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
+    transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1), border 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .close_modal:hover {
+    border: none;
     background-color: var(--ocean);
+}
+
+.close_modal:focus {
+    border: none;
+    background-color: #404bbf;
 }
 
 .close_modal:hover .svg_close_icon {
     fill: #ffffff;
+    transition: fill 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
+.close_modal:focus .svg_close_icon {
+    fill: #ffffff;
+}
 
 /*  M O D A L  C O N T E N T  */
 
-.input_title {
+.order_fixed_input_styles {
+    padding-left: 38px;
+
+    border: 1px solid rgba(46, 47, 66, 0.4);
+    border-radius: 4px;
+    background-color: transparent;
+    outline: transparent;
+
+    width: 100%;
+    height: 40px;
+
+    transition: border-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.inpt_label {
+    margin-bottom: 4px;
+
     font-weight: 400;
     font-size: 12px;
     line-height: 117%;
@@ -401,30 +423,27 @@ address {
     color: var(--light-slate);
 }
 
-.order_fixed_input_styles {
-    padding: 8px 32px;
-
-    border: 1px solid var(--navy-blue-modal);
-    border-radius: 4px;
-
-    width: 360px;
-    height: 40px;
-}
-
-.inpt_label {
-    position: relative;
-}
-
 .input_icon_position {
     position: absolute;
+
     top: 50%;
     left: 16px;
-    transform: translate(0, 50%);
+
+    transform: translate(0, -50%);
+}
+
+.user_content {
+    margin-bottom: 8px;
+}
+
+.inpt_field {
+    position: relative;
 }
 
 .modal_title {
     margin-bottom: 16px;
 
+    font-weight: 500;
     font-size: 16px;
     line-height: 150%;
 
@@ -432,19 +451,12 @@ address {
     color: var(--navy-blue);
 }
 
-.modal_order_form {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-}
-
 .inpt_label {
-    margin-bottom: 8px;
+    margin-bottom: 4px;
 }
 
 .textarea_block {
-    width: 100%;
+    margin-bottom: 16px;
 }
 
 .textarea_form {
@@ -452,11 +464,21 @@ address {
     margin-bottom: 16px;
 
     width: 100%;
+    height: 120px;
+
+    background-color: transparent;
+    outline: transparent;
 
     border-radius: 4px;
     border: 1px solid var(--navy-blue-modal);
 
     resize: none;
+
+    font-weight: 400;
+    font-size: 12px;
+    line-height: 117%;
+    letter-spacing: 0.04em;
+    color: var(--navy-blue-modal);
 }
 
 
@@ -471,12 +493,12 @@ address {
 .order_fixed_input_styles:focus,
 .textarea_form:hover,
 .textarea_form:focus {
-    border: 1px solid var(--iris);
+    border-color: #4D5AE5;
 }
 
 
-.inpt_label:hover svg,
-.inpt_label:focus svg {
+.inpt_field:hover svg,
+.inpt_field:focus svg {
     fill: var(--iris);
 }
 
@@ -499,9 +521,16 @@ address {
 }
 
 .order_button {
+    display: block;
+    margin: 0 auto;
+
     padding: 16px 32px;
 
-    width: 169px;
+    min-width: 169px;
+
+    font-weight: 500;
+    line-height: 1.5;
+    letter-spacing: 0.04em;
 }
 
 /*  B E N E F I T S  S E C T I O N  */
