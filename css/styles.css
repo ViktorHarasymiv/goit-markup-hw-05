@@ -533,7 +533,7 @@ address {
     fill: #434455;
 }
 
-.user-privacy_checkbox:checked+.custom_checkbox {
+.user-privacy_checkbox:checked .custom_checkbox {
     background-color: #404bbf;
     border: none;
     fill: #F4F4FD;
