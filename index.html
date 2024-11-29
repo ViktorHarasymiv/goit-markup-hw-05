@@ -449,8 +449,8 @@
             <div class="footer_form">
                 <p class="soc_title">Subscribe</p>
                 <form action="#" class="subscribe_form">
-                    <label for="subscribe_input" class="footer_label">
-                        <input type="email" name="subscribe_input" placeholder="E-mail" class="subscribe_input"
+                    <label for="user-email" class="footer_label">
+                        <input type="email" name="user-email" placeholder="E-mail" class="subscribe_input"
                             id="subscribe_input" required />
                     </label>
                     <button class="subscribe_button button_fixed_style" type="submit">
@@ -527,12 +527,23 @@
                     <textarea id="user-comment" name="user-comment" rows="6" maxlength="250" placeholder="Text input"
                         class="textarea_form"></textarea>
                 </div>
-                <label for="policy" class="policy_checkbox">
-                    <input type="checkbox" name="checkbox" id="policy">
-                    <span class="policy_text">I accept the terms and conditions of the
-                        <a href="#" class="policy_link">Privacy Policy</a>
-                    </span>
-                </label>
+                <div class="checkbox_block">
+                    <label for="user-privacy" class="policy_label">
+                        <label for="user-privacy" class="policy_text">
+                            <input type="checkbox" name="user-privacy" value="true" id="user-privacy"
+                                class="user-privacy_checkbox visually-hidden">
+                            <span class="custom_checkbox">
+                                <svg class="checked_custom_ico" width="10" height="8">
+                                    <use href="./images/icons.svg#icon-checked">
+                                    </use>
+                                </svg>
+                            </span>
+                            I accept the
+                            terms and conditions of the
+                            <a href="#" class="policy_link">Privacy Policy</a>
+                        </label>
+                    </label>
+                </div>
                 <button type="submit" class="order_button button_fixed_style">
                     <span class="button_fixed_text_style">SEND</span>
                 </button>
