@@ -448,6 +448,11 @@ address {
     position: relative;
 }
 
+.intp_ico:hover+.input_icon_position,
+.intp_ico:focus+.input_icon_position {
+    fill: #4D5AE5;
+}
+
 .modal_title {
     margin-bottom: 16px;
 
@@ -503,14 +508,7 @@ address {
 .order_fixed_input_styles:focus,
 .textarea_form:hover,
 .textarea_form:focus {
-    fill: #4D5AE5;
     border-color: #4D5AE5;
-}
-
-
-.inpt_field:hover svg,
-.inpt_field:focus svg {
-    fill: var(--iris);
 }
 
 .checkbox_block {
